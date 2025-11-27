@@ -52,7 +52,20 @@ export default function Projects() {
                             <div className={styles.content}>
                                 <div className={styles.titleRow}>
                                     <h3 className={styles.title}>{project.title}</h3>
-                                    <span className={styles.linkIcon}>↗</span>
+                                    <svg
+                                        className={styles.linkIcon}
+                                        width="24"
+                                        height="24"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    >
+                                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                                        <polyline points="7 7 17 7 17 17"></polyline>
+                                    </svg>
                                 </div>
                                 <p className={styles.description}>{project.description}</p>
                                 <div className={styles.tags}>

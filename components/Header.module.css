@@ -84,6 +84,23 @@
     background: var(--accent-secondary) !important;
 }
 
+/* Mobile Actions Container */
+.mobileActions {
+    display: none;
+    align-items: center;
+    gap: 1rem;
+}
+
+.mobileThemeToggle {
+    display: flex;
+    align-items: center;
+}
+
+.desktopThemeToggle {
+    display: flex;
+    align-items: center;
+}
+
 /* Hamburger Menu */
 .hamburger {
     display: none;
@@ -118,8 +135,16 @@
 
 /* Mobile Styles */
 @media (max-width: 768px) {
+    .mobileActions {
+        display: flex;
+    }
+
     .hamburger {
         display: flex;
+    }
+
+    .desktopThemeToggle {
+        display: none !important;
     }
 
     .nav {

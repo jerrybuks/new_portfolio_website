@@ -40,16 +40,21 @@ export default function Header() {
                     JC.
                 </Link>
 
-                <button
-                    className={styles.hamburger}
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                    aria-expanded={isMenuOpen}
-                >
-                    <span className={isMenuOpen ? styles.open : ''}></span>
-                    <span className={isMenuOpen ? styles.open : ''}></span>
-                    <span className={isMenuOpen ? styles.open : ''}></span>
-                </button>
+                <div className={styles.mobileActions}>
+                    <div className={styles.mobileThemeToggle}>
+                        <ThemeToggle />
+                    </div>
+                    <button
+                        className={styles.hamburger}
+                        onClick={toggleMenu}
+                        aria-label="Toggle menu"
+                        aria-expanded={isMenuOpen}
+                    >
+                        <span className={isMenuOpen ? styles.open : ''}></span>
+                        <span className={isMenuOpen ? styles.open : ''}></span>
+                        <span className={isMenuOpen ? styles.open : ''}></span>
+                    </button>
+                </div>
 
                 <nav className={`${styles.nav} ${isMenuOpen ? styles.navOpen : ''}`}>
                     <ul className={styles.navList}>
@@ -67,7 +72,7 @@ export default function Header() {
                                 </Link>
                             </li>
                         ))}
-                        <li><ThemeToggle /></li>
+                        <li className={styles.desktopThemeToggle}><ThemeToggle /></li>
                     </ul>
                 </nav>
             </div>
