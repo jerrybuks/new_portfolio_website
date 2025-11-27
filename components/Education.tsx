@@ -4,8 +4,8 @@ const education = {
     degree: "Master of Science in Computer Science (Online)",
     specialization: "Specialization in Machine Learning",
     institution: "Georgia Institute of Technology",
-    program: "OMSCS (Online Master of Science in Computer Science)",
-    period: "In Progress",
+    // program: "OMSCS (Online Master of Science in Computer Science)",
+    period: "Starting Jan 2026",
     location: "Atlanta, Georgia"
 };
 

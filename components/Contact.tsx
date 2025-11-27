@@ -18,7 +18,7 @@ export default function Contact() {
                     <div className={styles.socials}>
                         <a href="https://www.linkedin.com/in/jerry-chibuokem/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                         <a href="https://github.com/jerrybuks" target="_blank" rel="noopener noreferrer">GitHub</a>
-                        <a href="https://drive.google.com/file/d/1f97_szO1BqMfAcKuEWYkuZ1shxaTsDUF/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+                        <a href="https://drive.google.com/file/d/1b4tf-epPXHxwg0CwwE21zKvZWf_3zs7F/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
                     </div>
 
                     <footer className={styles.footer}>

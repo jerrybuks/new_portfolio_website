@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Jerry Chibuokem - Software & Blockchain Architect",
-  description: "Technical Leader & Blockchain Innovator with 7 years of experience building and scaling web and blockchain applications. CTO at Panenka FC, specializing in Web3, smart contracts, and full-stack development.",
+  description: "Software Engineer & Architect with 7 years of experience building and scaling web and blockchain applications. CTO at Panenka FC, specializing in Web3, smart contracts, and full-stack development.",
   keywords: ["Software Engineer", "Blockchain Developer", "CTO", "Web3", "Smart Contracts", "Full Stack Developer", "React", "Next.js", "StarkNet", "Solidity"],
   authors: [{ name: "Jerry Chibuokem" }],
   creator: "Jerry Chibuokem",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://jerrychibuokem.com",
     title: "Jerry Chibuokem - Software & Blockchain Architect",
-    description: "Technical Leader & Blockchain Innovator with 7 years of experience building and scaling web and blockchain applications.",
+    description: "Software Engineer & Architect with 7 years of experience building and scaling web and blockchain applications.",
     siteName: "Jerry Chibuokem Portfolio",
     images: [
       {
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Jerry Chibuokem - Software & Blockchain Architect",
-    description: "Technical Leader & Blockchain Innovator specializing in Web3 and full-stack development.",
+    description: "Software Engineer & Architect specializing in Web3 and full-stack development.",
     images: ["/profile-v2.jpg"],
   },
   robots: {
