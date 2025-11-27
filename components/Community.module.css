@@ -1,0 +1,259 @@
+.heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+[data-theme='light'] .heading {
+    background: linear-gradient(135deg, #18181b, #3f3f46);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.carouselContainer {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 3rem;
+}
+
+.carouselTrack {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .carouselContainer {
+        padding: 0;
+    }
+
+    .carouselTrack {
+        height: 600px;
+    }
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    height: 100%;
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+    .card {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+}
+
+.navBtn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.navBtn:hover {
+    background: var(--accent-primary);
+    color: white;
+    border-color: var(--accent-primary);
+}
+
+.prevBtn {
+    left: 0;
+}
+
+.nextBtn {
+    right: 0;
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--border-color);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.activeIndicator {
+    background: var(--accent-primary);
+    transform: scale(1.2);
+}
+
+.content {
+    padding-right: 2rem;
+}
+
+@media (max-width: 768px) {
+    .content {
+        padding-right: 0;
+    }
+}
+
+.period {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(37, 99, 235, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+}
+
+.organization {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Collage Styles */
+.visual {
+    position: relative;
+    height: 400px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .visual {
+        height: 300px;
+    }
+}
+
+.collage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.imageWrapper {
+    position: absolute;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-theme='light'] .imageWrapper {
+    box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.15);
+    border-color: rgba(0, 0, 0, 0.05);
+}
+
+.imageWrapper:hover {
+    transform: scale(1.05) !important;
+    z-index: 10;
+    box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.4);
+}
+
+.image {
+    object-fit: cover;
+}
+
+/* Active Slide */
+.active {
+    z-index: 5;
+}
+
+/* Image Classes */
+.img-0,
+.img-1,
+.img-2 {
+    /* Ensure these are exported */
+}
+
+/* Genesys Collage (Index 0 - formerly collage-1) */
+.collage-0 .img-0 {
+    width: 60%;
+    height: 65%;
+    top: 5%;
+    right: 5%;
+    z-index: 2;
+}
+
+.collage-0 .img-1 {
+    width: 50%;
+    height: 55%;
+    bottom: 0;
+    left: 5%;
+    z-index: 1;
+}
+
+.collage-0 .img-2 {
+    width: 45%;
+    height: 45%;
+    bottom: 10%;
+    right: 0;
+    z-index: 3;
+}
+
+/* Andela Collage (Index 1 - formerly collage-0) */
+.collage-1 .img-0 {
+    width: 60%;
+    height: 65%;
+    top: 0;
+    left: 5%;
+    z-index: 2;
+}
+
+.collage-1 .img-1 {
+    width: 50%;
+    height: 55%;
+    bottom: 5%;
+    right: 5%;
+    z-index: 1;
+}
+
+.collage-1 .img-2 {
+    width: 45%;
+    height: 45%;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+}
