@@ -39,6 +39,11 @@
     transform: translateY(-2px);
 }
 
+.emailBtn:active {
+    transform: scale(0.95);
+    background: rgba(59, 130, 246, 0.2);
+}
+
 .socials {
     display: flex;
     justify-content: center;
@@ -49,9 +54,18 @@
 .socials a {
     color: var(--text-secondary);
     font-size: 1rem;
+    transition: all 0.2s ease;
+    padding: 0.5rem;
+    /* Increase touch target */
 }
 
 .socials a:hover {
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+.socials a:active {
+    transform: scale(0.9);
     color: var(--accent-primary);
 }
 

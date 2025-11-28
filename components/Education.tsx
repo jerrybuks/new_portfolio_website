@@ -4,7 +4,7 @@ import { useScrollReveal } from '@/hooks/useScrollReveal';
 import styles from './Education.module.css';
 
 const education = {
-    degree: "Master of Science in Computer Science (Online)",
+    degree: "M.S. in Computer Science",
     specialization: "Specialization in Machine Learning",
     institution: "Georgia Institute of Technology",
     // program: "OMSCS (Online Master of Science in Computer Science)",
@@ -13,7 +13,7 @@ const education = {
 };
 
 const previousEducation = {
-    degree: "Bachelor of Engineering - BE, Electronic Engineering",
+    degree: "B.Eng. in Electronic Engineering",
     institution: "University Of Nigeria",
     period: "2015 – 2021",
     location: "Nsukka, Nigeria"
@@ -22,19 +22,23 @@ const previousEducation = {
 const certifications = [
     {
         title: "GCP Certified Professional Cloud Architect",
-        issuer: "Google Cloud"
+        issuer: "Google Cloud",
+        year: "2024"
     },
     {
         title: "AWS Solutions Architect - Associate",
-        issuer: "Amazon Web Services (AWS)"
+        issuer: "Amazon Web Services (AWS)",
+        year: "2023"
     },
     {
         title: "Kubernetes and Cloud Native Associate",
-        issuer: "The Linux Foundation"
+        issuer: "The Linux Foundation",
+        year: "2023"
     },
     {
         title: "Algorithmic Toolbox",
-        issuer: "Coursera"
+        issuer: "Coursera",
+        year: "2022"
     }
 ];
 
@@ -65,7 +69,7 @@ function EducationCard({ edu, index }: { edu: typeof education | typeof previous
     );
 }
 
-function CertCard({ cert, index }: { cert: typeof certifications[0]; index: number }) {
+function CertItem({ cert, index }: { cert: typeof certifications[0]; index: number }) {
     const { ref, isVisible } = useScrollReveal();
 
     return (
@@ -73,9 +77,18 @@ function CertCard({ cert, index }: { cert: typeof certifications[0]; index: numb
             ref={ref}
             className={`scroll-reveal ${isVisible ? 'revealed' : ''}`}
         >
-            <div className={styles.certCard}>
-                <h4 className={styles.certTitle}>{cert.title}</h4>
-                <p className={styles.certIssuer}>{cert.issuer}</p>
+            <div className={styles.certItem}>
+                <div className={styles.certIcon}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                </div>
+                <div className={styles.certContent}>
+                    <h4 className={styles.certTitle}>{cert.title}</h4>
+                    <p className={styles.certIssuer}>{cert.issuer}</p>
+                </div>
+                {/* <span className={styles.certYear}>{cert.year}</span> */}
             </div>
         </div>
     );
@@ -105,9 +118,9 @@ export default function Education() {
                     {/* Certifications */}
                     <div className={styles.certificationsSection}>
                         <h3 className={styles.sectionTitle}>Certifications</h3>
-                        <div className={styles.certGrid}>
+                        <div className={styles.certList}>
                             {certifications.map((cert, index) => (
-                                <CertCard key={index} cert={cert} index={index} />
+                                <CertItem key={index} cert={cert} index={index} />
                             ))}
                         </div>
                     </div>

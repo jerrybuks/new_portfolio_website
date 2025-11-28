@@ -18,13 +18,14 @@
 
 .content {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
 }
 
 @media (max-width: 968px) {
     .content {
         grid-template-columns: 1fr;
+        gap: 3rem;
     }
 }
 
@@ -36,16 +37,21 @@
 }
 
 .sectionTitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    color: var(--text-primary);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    border-left: 3px solid var(--accent-primary);
 }
 
+/* Education Cards - Cleaner */
 .educationCard {
-    background: var(--bg-secondary);
+    background: rgba(255, 255, 255, 0.02);
     padding: 2rem;
-    border-radius: 8px;
+    border-radius: 12px;
     border: 1px solid var(--border-color);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     position: relative;
@@ -59,7 +65,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.15), transparent);
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
     transition: left 0.6s;
     pointer-events: none;
 }
@@ -69,18 +75,37 @@
 }
 
 .educationCard:hover {
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3px);
     border-color: var(--accent-primary);
+    background: rgba(37, 99, 235, 0.03);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='light'] .educationCard {
+    background: var(--bg-secondary);
     box-shadow: var(--card-shadow);
     border-color: transparent;
 }
 
 [data-theme='light'] .educationCard:hover {
-    box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile Liveliness */
+@media (hover: none) {
+
+    .educationCard,
+    .certCard {
+        animation: pulse-slow 5s ease-in-out infinite;
+        /* Stagger animations slightly if possible, but CSS-only is hard without nth-child */
+    }
+
+    .educationCard:active,
+    .certCard:active {
+        transform: scale(0.98);
+        border-color: var(--accent-primary);
+        background: rgba(37, 99, 235, 0.05);
+    }
 }
 
 .educationHeader {
@@ -97,29 +122,23 @@
 }
 
 .degree {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.5rem;
 }
 
 .specialization {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--accent-primary);
     margin-bottom: 0.5rem;
     font-weight: 500;
 }
 
 .institution {
-    font-size: 1rem;
+    font-size: 0.95rem;
     color: var(--text-secondary);
     margin-bottom: 0.25rem;
-}
-
-.program {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    font-style: italic;
 }
 
 .meta {
@@ -127,7 +146,7 @@
     flex-direction: column;
     align-items: flex-end;
     gap: 0.25rem;
-    min-width: 150px;
+    min-width: 140px;
 }
 
 @media (max-width: 768px) {
@@ -138,7 +157,7 @@
 
 .period {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
     font-weight: 500;
 }
 
@@ -147,69 +166,65 @@
     color: var(--text-secondary);
 }
 
-/* Certifications */
-.certGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-    align-items: stretch;
-}
-
-.certCard {
-    background: rgba(255, 255, 255, 0.03);
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-    overflow: hidden;
+/* Certifications - List Style */
+.certList {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    gap: 1rem;
 }
 
-.certCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.15), transparent);
-    transition: left 0.5s;
-    pointer-events: none;
+.certItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s ease;
 }
 
-.certCard:hover::before {
-    left: 100%;
+.certItem:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: var(--border-color);
+    transform: translateX(5px);
 }
 
-.certCard:hover {
-    border-color: var(--accent-primary);
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 12px 30px -10px rgba(37, 99, 235, 0.4);
-    background: rgba(37, 99, 235, 0.08);
-}
-
-[data-theme='light'] .certCard {
-    background: var(--bg-secondary);
-    box-shadow: var(--card-shadow);
+[data-theme='light'] .certItem:hover {
+    background: #f4f4f5;
     border-color: transparent;
 }
 
-[data-theme='light'] .certCard:hover {
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.2);
+.certIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+.certContent {
+    flex: 1;
 }
 
 .certTitle {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
 }
 
 .certIssuer {
     font-size: 0.85rem;
     color: var(--text-secondary);
+}
+
+.certYear {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
 }

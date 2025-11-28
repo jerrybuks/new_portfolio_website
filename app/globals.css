@@ -218,6 +218,48 @@ h6 {
   }
 }
 
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes mobile-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Mobile Liveliness */
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(-45deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));
+    background-size: 400% 400%;
+    animation: mobile-gradient 15s ease infinite;
+  }
+
+  /* Add subtle breathing to cards on mobile to show they are interactive */
+  .mobile-alive {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
 /* Utility Animation Classes */
 .animate-fade-in {
   animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;

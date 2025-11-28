@@ -113,3 +113,17 @@
     border-color: var(--accent-primary);
     color: var(--accent-primary);
 }
+
+/* Mobile Liveliness */
+@media (hover: none) {
+    .skill:active {
+        transform: scale(0.95);
+        background: var(--accent-primary);
+        color: white;
+        border-color: var(--accent-primary);
+    }
+
+    .category {
+        animation: pulse-slow 6s ease-in-out infinite;
+    }
+}

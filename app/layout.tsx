@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jerrychibuokem.com'),
   title: "Jerry Chibuokem - Software & Blockchain Architect",
   description: "Software Engineer & Architect with 7 years of experience building and scaling web and blockchain applications. CTO at Panenka FC, specializing in Web3, smart contracts, and full-stack development.",
   keywords: ["Software Engineer", "Blockchain Developer", "CTO", "Web3", "Smart Contracts", "Full Stack Developer", "React", "Next.js", "StarkNet", "Solidity"],
@@ -58,11 +59,12 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
+};
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
 };
 
 export default function RootLayout({
