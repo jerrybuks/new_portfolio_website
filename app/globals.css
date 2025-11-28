@@ -218,6 +218,48 @@ h6 {
   }
 }
 
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes mobile-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Mobile Liveliness */
+@media (max-width: 768px) {
+  body {
+    background: linear-gradient(-45deg, var(--bg-primary), var(--bg-secondary), var(--bg-primary));
+    background-size: 400% 400%;
+    animation: mobile-gradient 15s ease infinite;
+  }
+
+  /* Add subtle breathing to cards on mobile to show they are interactive */
+  .mobile-alive {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
 /* Utility Animation Classes */
 .animate-fade-in {
   animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -344,3 +386,83 @@ h6 {
 }
 
 /* Contact */
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(50px) scale(0.95) rotateX(10deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+/* Stagger delays for multiple items */
+.scroll-reveal:nth-child(1) {
+  transition-delay: 0ms;
+}
+
+.scroll-reveal:nth-child(2) {
+  transition-delay: 150ms;
+}
+
+.scroll-reveal:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+.scroll-reveal:nth-child(4) {
+  transition-delay: 450ms;
+}
+
+.scroll-reveal:nth-child(5) {
+  transition-delay: 600ms;
+}
+
+.scroll-reveal:nth-child(6) {
+  transition-delay: 750ms;
+}
+
+/* Slide from left variant */
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-80px) scale(0.9) rotateY(-15deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0) scale(1) rotateY(0deg);
+}
+
+/* Slide from right variant */
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(80px) scale(0.9) rotateY(15deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0) scale(1) rotateY(0deg);
+}
+
+/* Scale variant */
+.scroll-reveal-scale {
+  opacity: 0;
+  transform: scale(0.85) rotateZ(-5deg);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1) rotateZ(0deg);
+}

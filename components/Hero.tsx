@@ -41,7 +41,8 @@ export default function Hero() {
                     <h1 className={`${styles.name} animate-fade-up delay-200`}>Jerry Chibuokem</h1>
                     <h3 className={`${styles.title} animate-fade-up delay-300`}>Software & Blockchain Architect</h3>
                     <p className={`${styles.description} animate-fade-up delay-400`}>
-                        Software Engineer & Architect with 7 years of experience building and scaling web and blockchain applications.
+                        I bridge the gap between complex technical requirements and tangible business goals. 7+ years building and scaling web & blockchain applications.
+
                     </p>
                     <div className={`${styles.actions} animate-fade-up delay-500`}>
                         <a

@@ -27,13 +27,31 @@
     border-radius: 8px;
     border: 1px solid var(--border-color);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.2), transparent);
+    transition: left 0.6s;
+    pointer-events: none;
+}
+
+.category:hover::before {
+    left: 100%;
 }
 
 .category:hover {
     border-color: var(--accent-primary);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.3);
-    background: rgba(37, 99, 235, 0.05);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px -10px rgba(37, 99, 235, 0.4);
+    background: rgba(37, 99, 235, 0.08);
 }
 
 [data-theme='light'] .category {
@@ -42,8 +60,12 @@
     border-color: transparent;
 }
 
+[data-theme='light'] .category::before {
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.15), transparent);
+}
+
 [data-theme='light'] .category:hover {
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.2);
 }
 
 .categoryTitle {
@@ -67,7 +89,16 @@
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.2s ease;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: default;
+}
+
+.skill:hover {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 5px 15px -5px rgba(37, 99, 235, 0.4);
 }
 
 [data-theme='light'] .skill {
@@ -78,6 +109,21 @@
 }
 
 [data-theme='light'] .skill:hover {
-    background: #e4e4e7;
-    border-color: #d4d4d8;
+    background: linear-gradient(135deg, #dbeafe, #e0e7ff);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+/* Mobile Liveliness */
+@media (hover: none) {
+    .skill:active {
+        transform: scale(0.95);
+        background: var(--accent-primary);
+        color: white;
+        border-color: var(--accent-primary);
+    }
+
+    .category {
+        animation: pulse-slow 6s ease-in-out infinite;
+    }
 }

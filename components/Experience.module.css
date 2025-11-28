@@ -23,15 +23,18 @@
     border-left: 2px solid var(--border-color);
 }
 
-.item {
-    position: relative;
+.experienceWrapper {
     margin-bottom: 3rem;
-    transform-style: preserve-3d;
-    will-change: transform;
 }
 
-.item:last-child {
+.experienceWrapper:last-child {
     margin-bottom: 0;
+}
+
+.item {
+    position: relative;
+    transform-style: preserve-3d;
+    will-change: transform;
 }
 
 .marker {
@@ -121,11 +124,25 @@
         padding-left: 1rem;
     }
 
+    .experienceWrapper {
+        /* Disable 3D transforms on mobile for better performance and no overflow */
+        transform: none !important;
+    }
+
     .item {
         padding-left: 1rem;
+        /* Disable 3D perspective on mobile */
+        transform: none !important;
+        transform-style: flat;
     }
 
     .marker {
         left: -1.6rem;
+    }
+
+    .content {
+        /* Prevent horizontal overflow on mobile */
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 }
