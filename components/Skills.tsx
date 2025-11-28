@@ -1,3 +1,6 @@
+'use client';
+
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import styles from './Skills.module.css';
 
 const skillCategories = [
@@ -31,26 +34,41 @@ const skillCategories = [
     }
 ];
 
+function SkillCategory({ category, index }: { category: typeof skillCategories[0]; index: number }) {
+    const { ref, isVisible } = useScrollReveal();
+
+    return (
+        <div
+            ref={ref}
+            className={`scroll-reveal ${isVisible ? 'revealed' : ''}`}
+        >
+            <div className={styles.category}>
+                <h3 className={styles.categoryTitle}>{category.title}</h3>
+                <div className={styles.skillList}>
+                    {category.skills.map((skill, i) => (
+                        <span key={i} className={styles.skill}>{skill}</span>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 export default function Skills() {
+    const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
+
     return (
         <section id="skills" className="section">
             <div className="container">
-                <h2 className={styles.heading}>
+                <h2
+                    ref={titleRef}
+                    className={`${styles.heading} scroll-reveal-scale ${titleVisible ? 'revealed' : ''}`}
+                >
                     Technical & Soft Skills
                 </h2>
                 <div className={styles.grid}>
                     {skillCategories.map((category, index) => (
-                        <div
-                            key={index}
-                            className={styles.category}
-                        >
-                            <h3 className={styles.categoryTitle}>{category.title}</h3>
-                            <div className={styles.skillList}>
-                                {category.skills.map((skill, i) => (
-                                    <span key={i} className={styles.skill}>{skill}</span>
-                                ))}
-                            </div>
-                        </div>
+                        <SkillCategory key={index} category={category} index={index} />
                     ))}
                 </div>
             </div>

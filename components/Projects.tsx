@@ -1,3 +1,6 @@
+'use client';
+
+import { useScrollReveal } from '@/hooks/useScrollReveal';
 import styles from './Projects.module.css';
 
 const projects = [
@@ -33,48 +36,65 @@ const projects = [
     }
 ];
 
+function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
+    const { ref, isVisible } = useScrollReveal();
+
+    return (
+        <div
+            ref={ref}
+            className={`scroll-reveal ${isVisible ? 'revealed' : ''}`}
+        >
+            <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+            >
+                <div className={styles.content}>
+                    <div className={styles.titleRow}>
+                        <h3 className={styles.title}>{project.title}</h3>
+                        <svg
+                            className={styles.linkIcon}
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                        >
+                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                            <polyline points="7 7 17 7 17 17"></polyline>
+                        </svg>
+                    </div>
+                    <p className={styles.description}>{project.description}</p>
+                    <div className={styles.tags}>
+                        {project.tech.map((t, i) => (
+                            <span key={i} className={styles.tag}>{t}</span>
+                        ))}
+                    </div>
+                </div>
+            </a>
+        </div>
+    );
+}
+
 export default function Projects() {
+    const { ref: titleRef, isVisible: titleVisible } = useScrollReveal();
+
     return (
         <section id="projects" className="section">
             <div className="container">
-                <h2 className={styles.heading}>
+                <h2
+                    ref={titleRef}
+                    className={`${styles.heading} scroll-reveal-scale ${titleVisible ? 'revealed' : ''}`}
+                >
                     Featured Projects
                 </h2>
                 <div className={styles.grid}>
                     {projects.map((project, index) => (
-                        <a
-                            key={index}
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={styles.card}
-                        >
-                            <div className={styles.content}>
-                                <div className={styles.titleRow}>
-                                    <h3 className={styles.title}>{project.title}</h3>
-                                    <svg
-                                        className={styles.linkIcon}
-                                        width="24"
-                                        height="24"
-                                        viewBox="0 0 24 24"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <line x1="7" y1="17" x2="17" y2="7"></line>
-                                        <polyline points="7 7 17 7 17 17"></polyline>
-                                    </svg>
-                                </div>
-                                <p className={styles.description}>{project.description}</p>
-                                <div className={styles.tags}>
-                                    {project.tech.map((t, i) => (
-                                        <span key={i} className={styles.tag}>{t}</span>
-                                    ))}
-                                </div>
-                            </div>
-                        </a>
+                        <ProjectCard key={index} project={project} index={index} />
                     ))}
                 </div>
             </div>
