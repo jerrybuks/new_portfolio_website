@@ -17,9 +17,15 @@ const projects = [
         link: "https://www.oncrowdr.com/"
     },
     {
+        title: "Shoplytic",
+        description: "Agentic e-commerce platform powered by AI agents, featuring intelligent product discovery, personalized recommendations, and seamless shopping experiences.",
+        tech: ["React", "Python", "Langchain", "OpenAI Tools", "Langfuse", "Multi-agent"],
+        link: "https://agentic-ecommerce-fe.vercel.app/"
+    },
+    {
         title: "RAG Chatbot",
         description: "AI-powered chatbot using Retrieval-Augmented Generation for context-aware responses and intelligent document search.",
-        tech: ["React", "Python", "LangChain", "OpenAI", "Vector DB"],
+        tech: ["React", "Python", "RAG", "LangChain", "OpenAI", "Vector DB"],
         link: "https://rag-chatbot-fe-self.vercel.app"
     },
     {
